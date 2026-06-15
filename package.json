@@ -1,0 +1,46 @@
+{
+  "name": "affinity-mcp-proxy",
+  "version": "0.1.0",
+  "description": "stdio MCP proxy for the local Affinity MCP server",
+  "license": "MIT",
+  "author": "MaddozS",
+  "type": "module",
+  "homepage": "https://github.com/MaddozS/affinity-mcp-proxy#readme",
+  "bugs": {
+    "url": "https://github.com/MaddozS/affinity-mcp-proxy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaddozS/affinity-mcp-proxy.git"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "packageManager": "pnpm@11.6.0",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "*.mjs"
+  ],
+  "bin": {
+    "affinity-mcp-proxy": "./affinity_mcp_proxy.mjs",
+    "affinity-mcp-proxy-cli": "./affinity_direct_client.mjs"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --test && node --check ./affinity_package.mjs && node --check ./affinity_sdk.mjs && node --check ./affinity_direct_client.mjs && node --check ./affinity_mcp_proxy.mjs"
+  },
+  "keywords": [
+    "affinity",
+    "mcp",
+    "proxy",
+    "stdio",
+    "model-context-protocol"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5"
+  }
+}
