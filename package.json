@@ -23,8 +23,8 @@
     "*.mjs"
   ],
   "bin": {
-    "affinity-mcp-proxy": "./affinity_mcp_proxy.mjs",
-    "affinity-mcp-proxy-cli": "./affinity_direct_client.mjs"
+    "affinity-mcp-proxy": "affinity_mcp_proxy.mjs",
+    "affinity-mcp-proxy-cli": "affinity_direct_client.mjs"
   },
   "scripts": {
     "test": "node --test",
