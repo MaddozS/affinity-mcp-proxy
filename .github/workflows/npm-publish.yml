@@ -24,6 +24,8 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v6
@@ -32,7 +34,11 @@ jobs:
           node-version: 22
           cache: pnpm
           registry-url: https://registry.npmjs.org/
+      - name: Verify npm token is configured
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "Missing GitHub Actions secret NPM_TOKEN"
+            exit 1
+          fi
       - run: pnpm install --frozen-lockfile
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.npm_token }}
